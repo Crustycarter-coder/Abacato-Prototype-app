@@ -1,0 +1,204 @@
+#:import FitImage kivymd.uix.fitimage.FitImage
+
+<ProductInventoryScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+
+        MDTopAppBar:
+            title: "Product Inventory"
+            anchor_title: "left"
+            md_bg_color: app.theme_cls.primary_color
+            specific_text_color: 1, 1, 1, 1
+            left_action_items: [["arrow-left", lambda x: root.go_back()]]
+
+        # Search bar
+        MDBoxLayout:
+            size_hint_y: None
+            height: "56dp"
+            padding: "8dp", "4dp"
+
+            MDTextField:
+                hint_text: "Find anything"
+                mode: "rectangle"
+                size_hint_y: None
+                height: "48dp"
+                icon_left: "magnify"
+
+        MDBoxLayout:
+            adaptive_height: True
+            padding: [10, 5, 10, 5]
+            spacing: "8dp"
+
+            MDBoxLayout:
+                size_hint: None, None
+                size: "85dp", "32dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.937, 0.678, 0.094, 1
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [16,]
+                MDLabel:
+                    text: "All Items"
+                    font_size: "12sp"
+                    halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: 1,1,1,1
+            MDBoxLayout:
+                size_hint: None, None
+                size: "85dp", "32dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.824, 0.824, 0.824, 1
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [16,]
+                MDLabel:
+                    text: "Custom"
+                    font_size: "12sp"
+                    halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: 1,1,1,1
+            MDBoxLayout:
+                size_hint: None, None
+                size: "85dp", "32dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.824, 0.824, 0.824, 1
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [16,]
+                MDLabel:
+                    text: "Low Stock"
+                    font_size: "12sp"
+                    halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: 1,1,1,1
+            MDBoxLayout:
+                size_hint: None, None
+                size: "85dp", "32dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.824, 0.824, 0.824, 1  # Your Abaca light green color
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [16,]
+                MDLabel:
+                    text: "Out of Stock"
+                    font_size: "12sp"
+                    halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: 1,1,1,1
+
+        ScrollView:
+            do_scroll_x: False
+            md_bg_color:  0.96, 0.96, 0.96, 1
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "10dp"
+                padding: "10dp"
+
+
+                MDCard:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "150dp"  # Adjusted height for better fit
+                    padding: "10dp"
+                    elevation: 1
+                    radius: [12,]
+                    md_bg_color: 1, 1, 1, 1
+
+                    # --- UPPER PART (Image + Text) ---
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        spacing: "15dp"
+                        size_hint_y: .7 # Takes up 70% of the card height
+
+                        MDCard:
+                            size_hint: None, None
+                            size: "80dp","80dp"
+                            radius: [8,]
+                            pos_hint: {"center_y": .5}
+                            FitImage:
+                                source: "PNG/CategoriesPNG/Bags/bag 2.png"
+                                radius: [8,]
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: "40dp"
+                            pos_hint: {"center_y": .5}
+                            MDLabel:
+                                text: "Luxurious Bag"
+                                font_size: "18sp"
+                                bold: True
+                                adaptive_height: True
+                            MDLabel:
+                                text: "₱12,000.00"
+                                font_size: "16sp"
+                                theme_text_color: "Custom"
+                                text_color: 0.631, 0.439, 0.0, 1
+                                adaptive_height: True
+
+
+                    Widget:
+                        size_hint_y: None
+                        height: "1dp"
+                        canvas:
+                            Color:
+                                rgba: 0.9, 0.9, 0.9, 1 # Very light grey
+                            Rectangle:
+                                pos: self.x, self.y
+                                size: self.width, self.height
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: .3 # Takes up bottom 30%
+                        spacing: "10dp"
+
+
+                        MDBoxLayout:
+                            adaptive_width: True
+                            spacing: "8dp"
+                            padding: [10,0,10,0]
+                            MDIcon:
+                                icon: "circle"
+                                theme_text_color: "Custom"
+                                text_color: 0, 0.8, 0, 1
+                                font_size: "10sp"
+                                pos_hint: {"center_y": .5}
+                            MDLabel:
+                                text: "5pcs available"
+                                font_size: "12sp"
+                                theme_text_color: "Hint"
+                                adaptive_width: True
+
+                        Widget: # This pushes the icons to the far right
+
+                        # Action Buttons
+                        MDBoxLayout:
+                            adaptive_width: True
+                            spacing: "5dp"
+                            MDIconButton:
+                                icon: "eye-outline"
+                                icon_size: "20sp"
+                                pos_hint: {"center_y": .5}
+                            MDIconButton:
+                                icon: "pencil-outline"
+                                icon_size: "20sp"
+                                pos_hint: {"center_y": .5}
+                            MDIconButton:
+                                icon: "trash-can-outline"
+                                icon_size: "20sp"
+                                theme_text_color: "Error"
+                                pos_hint: {"center_y": .5}
+
+
+
