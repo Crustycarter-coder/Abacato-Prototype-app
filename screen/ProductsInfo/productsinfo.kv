@@ -1,0 +1,304 @@
+#:import FitImage kivymd.uix.fitimage.FitImage
+
+<ProductsInfoScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Product Information"
+            anchor_title: "left"
+            md_bg_color: app.theme_cls.primary_color
+            specific_text_color: 0, 0, 0, 1
+            left_action_items: [["arrow-left", lambda x: root.go_back()]]
+
+        ScrollView:
+            size_hint: 1, 1
+            do_scroll_x: False
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height      # ← REQUIRED for scroll to work
+                md_bg_color: 0.96, 0.96, 0.96, 1
+                spacing: "8dp"
+
+                # Main product image
+                MDCard:
+                    size_hint: 1, None
+                    height: "275dp"
+                    radius: [0, 0, 0, 0]
+
+                    FitImage:
+                        source: "PNG/CategoriesPNG/Abaca/Abaca Fiber product5.jpg"
+
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: "16dp"
+                    spacing: "8dp"
+                    size_hint_y: None
+                    height: "140dp"
+                    md_bg_color: 1, 1, 1, 1
+
+                    MDLabel:
+                        text: "Raw Abaca Fiber / Manila Hemp Graded"
+                        font_size: "16sp"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "40dp"
+
+                    MDLabel:
+                        text: "₱270.00"
+                        font_size: "21sp"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "32dp"
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        spacing: "4dp"
+                        size_hint_y: None
+                        height: "24dp"
+
+                        MDLabel:
+                            text: "5.0"
+                            font_size: "12sp"
+                            theme_text_color: "Custom"
+                            text_color: 0, 0, 0, 1
+                            size_hint_x: None
+                            width: "60dp"
+
+                        MDLabel:
+                            text: "Cavite"
+                            font_size: "12sp"
+                            theme_text_color: "Custom"
+                            text_color: 0, 0, 0, 1
+
+                # Seller section
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: "16dp"
+                    spacing: "8dp"
+                    size_hint_y: None
+                    height: "100dp"
+                    md_bg_color: 1, 1, 1, 1
+
+                    MDLabel:
+                        text: "Seller"
+                        font_size: "12sp"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "20dp"
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        spacing: "10dp"
+                        size_hint_y: None
+                        height: "56dp"
+
+                        MDCard:
+                            size_hint: None, None
+                            size: "50dp", "50dp"
+                            radius: [25, 25, 25, 25]
+                            pos_hint: {"center_y": 0.5}
+
+                            FitImage:
+                                source: "PNG/Users/catherineacc2.png"
+                                radius: [25, 25, 25, 25]
+
+                        MDLabel:
+                            text: "Catherine"
+                            font_size: "15sp"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0, 0, 0, 1
+                            pos_hint: {"center_y": 0.5}
+
+                        MDRaisedButton:
+                            text: "Visit Account"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            md_bg_color: app.theme_cls.primary_color
+                            size_hint: None, None
+                            size: "120dp", "36dp"
+                            pos_hint: {"center_y": 0.5}
+                            on_release: root.go_to_visitaccount()
+
+                # Description section
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: "16dp"
+                    spacing: "8dp"
+                    size_hint_y: None
+                    height: "420dp"
+                    md_bg_color: 1, 1, 1, 1
+
+                    MDLabel:
+                        text: "Description"
+                        font_size: "14sp"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "24dp"
+
+                    # Description image
+                    MDCard:
+                        size_hint: 1, None
+                        height: "200dp"
+                        radius: [8, 8, 8, 8]
+
+                        FitImage:
+                            source: "PNG/CategoriesPNG/Abaca/Abaca Fiber product5.jpg"
+                            radius: [8, 8, 8, 8]
+
+                    # Description text
+                    MDLabel:
+                        text: "ONHAND AND READY TO SHIP!!!\nORDER YOURS TODAY!!\nFOR YOUR DIY PROJECT\nADVANTAGES OF ABACA NATURAL FIBER\n- Strongest natural plant fiber.\n- Durable.\n- Flexible.\n- Long fiber length.\n- Does not swell or lose strength in water.\n- Resistant to saltwater damage.\n- Self-extinguishing.\n- Products obtained from Abaca fibers are eco-friendly."
+                        font_size: "11sp"
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "160dp"
+
+                # Related Products section
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: [0,10,0,10]
+                    spacing: "8dp"
+                    size_hint_y: None
+                    height: "380dp"
+                    md_bg_color: 1, 1, 1, 1
+
+                    MDLabel:
+                        padding: [10,0,0,0]
+                        text: "Related Products"
+                        font_size: "14sp"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "24dp"
+
+                    MDGridLayout:
+                        cols: 2
+                        spacing: "15dp"
+                        padding: "20dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        md_bg_color: 0.96, 0.96, 0.96, 1
+                        MDCard:
+                            orientation: "vertical"
+                            spacing: "10dp"
+                            md_bg_color: 1,1,1,1
+                            size_hint: None,None
+                            size: "170dp", "296dp"
+                            radius: [12, 12, 12, 12]
+                            padding: [9,20,9,10]
+                            on_release: root.go_to_productsinfo()
+                            MDCard:
+                                size_hint: None, None
+                                size: "143dp", "171dp"
+                                radius: [8,8,8,8]
+                                pos_hint: {"center_x": 0.5}
+                                FitImage:
+                                    source: "PNG/CategoriesPNG/Abaca/Abaca Fiber product5.jpg"
+                                    radius: [8,8,8,8]
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                spacing: "10dp"
+                                size_hint_y: None
+                                height: "90dp"
+                                MDLabel:
+                                    text: "Raw Abaca Fiber/\nManila Hemp Graded"
+                                    font_size: "12sp"
+                                    theme_text_color: "Custom"
+                                    text_color: 0, 0, 0, 1
+                                MDLabel:
+                                    text: "₱270.00"
+                                    font_size: "15sp"
+                                    bold: True
+                                    theme_text_color: "Custom"
+                                    text_color: 0,0,0,1
+                                MDBoxLayout:
+                                    orientation: "horizontal"
+                                    spacing: "5dp"
+                                    MDLabel:
+                                        icon: "star"
+                                        size_hint_y: None
+                                        height: "10dp"
+                                    MDLabel:
+                                        text: "5.0"
+                                        font_size: "10sp"
+                                        theme_text_color: "Custom"
+                                        text_color: 0,0,0,1
+                                    MDLabel:
+                                        icon: "map-marker"
+                                        size_hint_y: None
+                                        height: "10dp"
+                                    MDLabel:
+                                        text: "Cavite"
+                                        font_size: "10sp"
+                                        theme_text_color: "Custom"
+                                        text_color: 0,0,0,1
+                        MDCard:
+                            orientation: "vertical"
+                            spacing: "10dp"
+                            md_bg_color: 1,1,1,1
+                            size_hint: None,None
+                            size: "170dp", "296dp"
+                            radius: [12, 12, 12, 12]
+                            padding: [9,20,9,10]
+                            on_release: root.go_to_productsinfo()
+                            MDCard:
+                                size_hint: None, None
+                                size: "143dp", "171dp"
+                                radius: [8,8,8,8]
+                                pos_hint: {"center_x": 0.5}
+                                FitImage:
+                                    source: "PNG/CategoriesPNG/Abaca/Abaca Fiber product5.jpg"
+                                    radius: [8,8,8,8]
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                spacing: "10dp"
+                                size_hint_y: None
+                                height: "90dp"
+                                MDLabel:
+                                    text: "Raw Abaca Fiber/\nManila Hemp Graded"
+                                    font_size: "12sp"
+                                    theme_text_color: "Custom"
+                                    text_color: 0, 0, 0, 1
+                                MDLabel:
+                                    text: "₱270.00"
+                                    font_size: "15sp"
+                                    bold: True
+                                    theme_text_color: "Custom"
+                                    text_color: 0,0,0,1
+                                MDBoxLayout:
+                                    orientation: "horizontal"
+                                    spacing: "5dp"
+                                    MDLabel:
+                                        icon: "star"
+                                        size_hint_y: None
+                                        height: "10dp"
+                                    MDLabel:
+                                        text: "5.0"
+                                        font_size: "10sp"
+                                        theme_text_color: "Custom"
+                                        text_color: 0,0,0,1
+                                    MDLabel:
+                                        icon: "map-marker"
+                                        size_hint_y: None
+                                        height: "10dp"
+                                    MDLabel:
+                                        text: "Cavite"
+                                        font_size: "10sp"
+                                        theme_text_color: "Custom"
+                                        text_color: 0,0,0,1
+

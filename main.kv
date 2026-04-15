@@ -1,0 +1,86 @@
+
+
+MDScreen:
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDBottomNavigation:
+            id: bottom_nav
+
+            MDBottomNavigationItem:
+                id: home_tab
+                name: "home"
+                text: "Home"
+                icon: "home"
+
+            MDBottomNavigationItem:
+                id: categories_tab
+                name: "categories"
+                text: "Categories"
+                icon: "view-grid"
+
+            MDBottomNavigationItem:
+                id: inbox_tab
+                name: "inbox"
+                text: "Inbox"
+                icon: "inbox"
+
+            MDBottomNavigationItem:
+                name: "settings"
+                text: "Settings"
+                icon: "cog"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDTopAppBar:
+                        title: "Settings"
+                    MDLabel:
+                        text: "Settings Screen"
+                        halign: "center"
+
+
+MainScreen:
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        # 🟢 BottomNavigation is INSIDE MainScreen
+        MDBottomNavigation:
+
+            MDBottomNavigationItem:
+                name: "home_tab"
+                text: "Home"
+                icon: "home"
+
+                MDLabel:
+                    text: "HOME SCREEN"
+                    halign: "center"
+
+            MDBottomNavigationItem:
+                name: "rfq_tab"
+                text: "RFQ"
+                icon: "file-document"
+
+                MDBoxLayout:
+                    orientation: "vertical"
+
+                    MDLabel:
+                        text: "Go to RFQ Screen"
+
+                    MDRaisedButton:
+                        text: "Open RFQ"
+                        on_release: app.go_to_rfq()
+
+
+RFQScreen:
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "RFQ Page"
+            left_action_items: [["arrow-left", lambda x: app.go_home()]]
+
+        MDLabel:
+            text: "This is RFQ SCREEN"
+            halign: "center"

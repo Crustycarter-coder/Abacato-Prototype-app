@@ -1,0 +1,397 @@
+#:import FitImage kivymd.uix.fitimage.FitImage
+
+<CommunityChatScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "5dp"
+
+        MDTopAppBar:
+            title: "Community Chat"
+            anchor_title: "left"
+            md_bg_color: app.theme_cls.primary_color
+            specific_text_color: 1, 1, 1, 1
+            left_action_items: [["arrow-left", lambda x: app.go_back()]]
+
+        # Search bar
+        BoxLayout:
+            size_hint_y: None
+            height: "56dp"
+            padding: "8dp", "4dp"
+
+            MDTextField:
+                hint_text: "Find anything"
+                mode: "rectangle"
+                size_hint_y: None
+                height: "48dp"
+                icon_left: "magnify"
+
+        ScrollView:
+            do_scroll_x: False
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "8dp"
+                padding: "8dp"
+                md_bg_color:  0.96, 0.96, 0.96, 1
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: "62dp"
+                    padding: [17,0,17,0]
+                    spacing: "107dp"
+                    MDLabel:
+                        text: "Newest\nQuestion"
+                        font_size: "20sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+                        bold: True
+                    MDCard:
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        size: "125dp", "35dp"
+                        spacing: "5dp"
+                        padding: "5dp"
+                        md_bg_color: app.theme_cls.primary_color
+                        on_release: root.go_to_newquestion()
+                        MDIconButton:
+                            icon: "chat-plus-outline"
+                            pos_hint: {"center_y": 0.5}
+                            theme_icon_color: "Custom"
+                            icon_color: 1, 1, 1, 1
+
+                        MDLabel:
+                            text: "Ask a question"
+                            font_size: "10sp"
+                            theme_icon_color: "Custom"
+                            icon_color: 1, 1, 1, 1
+                            pos_hint: {"center_y": 0.5}
+                # Post Card
+                MDCard:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "300dp"
+                    padding: "10dp"
+                    spacing: "8dp"
+                    md_bg_color: 1, 1, 1, 1
+                    radius: [12, 12, 12, 12]
+
+                    # User row
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "48dp"
+                        spacing: "8dp"
+
+                        # Avatar
+                        MDCard:
+                            size_hint: None, None
+                            size: "44dp", "44dp"
+                            radius: [22, 22, 22, 22]
+                            pos_hint: {"center_y": 0.5}
+                            FitImage:
+                                source: "PNG/Users/catherineacc2.png"
+                                radius: [22, 22, 22, 22]
+
+                        # Username
+                        MDLabel:
+                            text: "Catherine"
+                            font_size: "14sp"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0, 0, 0, 1
+                            pos_hint: {"center_y": 0.5}
+
+                        # Three dots
+                        MDIconButton:
+                            icon: "dots-vertical"
+                            pos_hint: {"center_y": 0.5}
+                            theme_icon_color: "Custom"
+                            icon_color: 0, 0, 0, 1
+
+                    # Post text
+                    MDLabel:
+                        text: "My Abaca Health"
+                        font_size: "15sp"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "25dp"
+
+                    # Post details
+                    MDLabel:
+                        text: "My abaca plants are looking weak many leaves are turning yellow, stalks feel softer than usual, and growth has slowed down across the field. What could be causing this poor health?"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "100dp"
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        spacing: "10dp"
+                        MDCard:
+                            md_bg_color: 0.851, 0.851, 0.851, 1
+                            size_hint: None, None
+                            size: "90dp", "25dp"
+                            MDLabel:
+                                text: "  #AbacaHealth"
+                                font_size: "12sp"
+                                theme_text_color: "Custom"
+                                text_color: 0,0,0,1
+                        MDCard:
+                            md_bg_color: 0.851, 0.851, 0.851, 1
+                            size_hint: None, None
+                            size: "100dp", "25dp"
+                            MDLabel:
+                                text: "  #AbacaFarming"
+                                font_size: "12sp"
+                                theme_text_color: "Custom"
+                                text_color: 0,0,0,1
+
+                        MDCard:
+                            md_bg_color: 0.851, 0.851, 0.851, 1
+                            size_hint: None, None
+                            size: "100dp", "25dp"
+                            MDLabel:
+                                text: "  #FarmProblems"
+                                font_size: "12sp"
+                                theme_text_color: "Custom"
+                                text_color: 0,0,0,1
+
+
+                    # Action buttons row
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "40dp"
+                        spacing: "8dp"
+
+                        # Chat count button
+                        MDCard:
+                            orientation: "horizontal"
+                            size_hint: None, None
+                            size: "72dp", "30dp"
+                            radius: [18, 18, 18, 18]
+                            padding: "5dp"
+                            spacing: "4dp"
+                            md_bg_color: 1,1,1,1
+                            pos_hint: {"center_y": 0.5}
+                            canvas.after:
+                                Color:
+                                    rgba: 1, 0.76, 0.03, 1  # amber
+                                Line:
+                                    width: 1.2
+                                    rounded_rectangle: (self.x, self.y, self.width, self.height, 8)
+                            MDIconButton:
+                                icon: "chat-outline"
+                                size_hint: None, None
+                                size: "24dp", "24dp"
+                                pos_hint: {"x": 0, "center_y": 0.5}
+                                theme_icon_color: "Custom"
+                                icon_color: 0, 0, 0, 1
+                            MDLabel:
+                                text: "4"
+                                font_size: "12sp"
+                                pos_hint: {"center_y": 0.5}
+                                theme_text_color: "Custom"
+                                text_color: 0, 0, 0, 1
+
+                        # Share count button
+                        MDCard:
+                            orientation: "horizontal"
+                            size_hint: None, None
+                            size: "72dp", "30dp"
+                            radius: [18, 18, 18, 18]
+                            padding: "5dp"
+                            md_bg_color:1,1,1,1
+                            pos_hint: {"center_y": 0.5}
+                            canvas.after:
+                                Color:
+                                    rgba: 1, 0.76, 0.03, 1  # amber
+                                Line:
+                                    width: 1.2
+                                    rounded_rectangle: (self.x, self.y, self.width, self.height, 8)
+                            MDIconButton:
+                                icon: "share-outline"
+                                size_hint: None, None
+                                size: "24dp", "24dp"
+                                pos_hint: {"x": 0, "center_y": 0.5}
+                                theme_icon_color: "Custom"
+                                icon_color: 0, 0, 0, 1
+
+                            MDLabel:
+                                text: "6"
+                                font_size: "12sp"
+                                pos_hint: {"center_y": 0.5}
+                                theme_text_color: "Custom"
+                                text_color: 0, 0, 0, 1
+                MDCard:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "300dp"
+                    padding: "10dp"
+                    spacing: "8dp"
+                    md_bg_color: 1, 1, 1, 1
+                    radius: [12, 12, 12, 12]
+
+                    # User row
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "48dp"
+                        spacing: "8dp"
+
+                        # Avatar
+                        MDCard:
+                            size_hint: None, None
+                            size: "44dp", "44dp"
+                            radius: [22, 22, 22, 22]
+                            pos_hint: {"center_y": 0.5}
+                            FitImage:
+                                source: "PNG/Users/pramanixacc.png"
+                                radius: [22, 22, 22, 22]
+
+                        # Username
+                        MDLabel:
+                            text: "Pramanix"
+                            font_size: "14sp"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0, 0, 0, 1
+                            pos_hint: {"center_y": 0.5}
+
+                        # Three dots
+                        MDIconButton:
+                            icon: "dots-vertical"
+                            pos_hint: {"center_y": 0.5}
+                            theme_icon_color: "Custom"
+                            icon_color: 0, 0, 0, 1
+
+                    # Post text
+                    MDLabel:
+                        text: "My Abaca Fiber Problem."
+                        font_size: "15sp"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "20dp"
+
+                    # Post details
+                    MDLabel:
+                        text: "I just discovered that my uncle abaca fiber were actually daratex variety, what to do to avoid this low quality abaca fiber, my uncle is experiencing financial loss today..."
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+                        size_hint_y: None
+                        height: "100dp"
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        spacing: "10dp"
+                        MDCard:
+                            md_bg_color: 0.851, 0.851, 0.851, 1
+                            size_hint: None, None
+                            size: "55dp", "25dp"
+                            MDLabel:
+                                text: "  #Abaca"
+                                font_size: "12sp"
+                                theme_text_color: "Custom"
+                                text_color: 0,0,0,1
+
+                        MDCard:
+                            md_bg_color: 0.851, 0.851, 0.851, 1
+                            size_hint: None, None
+                            size: "100dp", "25dp"
+                            MDLabel:
+                                text: "  #AbacaFarming"
+                                font_size: "12sp"
+                                theme_text_color: "Custom"
+                                text_color: 0,0,0,1
+
+                        MDCard:
+                            md_bg_color: 0.851, 0.851, 0.851, 1
+                            size_hint: None, None
+                            size: "100dp", "25dp"
+                            MDLabel:
+                                text: "  #FarmProblems"
+                                font_size: "12sp"
+                                theme_text_color: "Custom"
+                                text_color: 0,0,0,1
+
+
+                    # Action buttons row
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "40dp"
+                        spacing: "8dp"
+
+                        # Chat count button
+                        MDCard:
+                            orientation: "horizontal"
+                            size_hint: None, None
+                            size: "72dp", "30dp"
+                            radius: [18, 18, 18, 18]
+                            padding: "5dp"
+                            spacing: "4dp"
+                            md_bg_color: 1,1,1,1
+                            pos_hint: {"center_y": 0.5}
+                            canvas.after:
+                                Color:
+                                    rgba: 1, 0.76, 0.03, 1  # amber
+                                Line:
+                                    width: 1.2
+                                    rounded_rectangle: (self.x, self.y, self.width, self.height, 8)
+                            MDIconButton:
+                                icon: "chat-outline"
+                                size_hint: None, None
+                                size: "24dp", "24dp"
+                                pos_hint: {"x": 0, "center_y": 0.5}
+                                theme_icon_color: "Custom"
+                                icon_color: 0, 0, 0, 1
+                            MDLabel:
+                                text: "2"
+                                font_size: "12sp"
+                                pos_hint: {"center_y": 0.5}
+                                theme_text_color: "Custom"
+                                text_color: 0, 0, 0, 1
+
+                        # Share count button
+                        MDCard:
+                            orientation: "horizontal"
+                            size_hint: None, None
+                            size: "72dp", "30dp"
+                            radius: [18, 18, 18, 18]
+                            padding: "5dp"
+                            md_bg_color:1,1,1,1
+                            pos_hint: {"center_y": 0.5}
+                            canvas.after:
+                                Color:
+                                    rgba: 1, 0.76, 0.03, 1  # amber
+                                Line:
+                                    width: 1.2
+                                    rounded_rectangle: (self.x, self.y, self.width, self.height, 8)
+                            MDIconButton:
+                                icon: "share-outline"
+                                size_hint: None, None
+                                size: "24dp", "24dp"
+                                pos_hint: {"x": 0, "center_y": 0.5}
+                                theme_icon_color: "Custom"
+                                icon_color: 0, 0, 0, 1
+
+                            MDLabel:
+                                text: "3"
+                                font_size: "12sp"
+                                pos_hint: {"center_y": 0.5}
+                                theme_text_color: "Custom"
+                                text_color: 0, 0, 0, 1
+
+
+
+
+

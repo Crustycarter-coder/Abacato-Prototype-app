@@ -1,0 +1,35 @@
+<CategoriesScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        size_hint: 1, 1
+
+        MDTopAppBar:
+            title: "Categories"
+            anchor_title: "left"
+
+        ScrollView:
+            size_hint: 1, 1
+            do_scroll_x: False
+            do_scroll_y: True
+            MDList:
+                id: list_view
+                padding: 0
+                spacing: 0
+
+<ProductsScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        size_hint: 1, 1
+
+        MDTopAppBar:
+            title: root.category_name
+            anchor_title: "left"
+            left_action_items: [["arrow-left", lambda x: app.go_back()]]
+
+        ScrollView:
+            size_hint: 1, 1
+            do_scroll_x: False
+            do_scroll_y: True
+
+            MDList:
+                id: products_list

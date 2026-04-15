@@ -1,0 +1,130 @@
+<NewQuestionScreen>
+    BoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "Ask a Question"
+            anchor_title: "left"
+            md_bg_color: app.theme_cls.primary_color
+            specific_text_color: 0,0,0,1
+            left_action_items: [["arrow-left", lambda x: root.go_back()]]
+
+        ScrollView:
+            do_scroll_x: False
+            md_bg_color: 0.98, 0.98, 0.98, 1
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "20dp"
+                padding: [10,20,10,20]
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "90dp"
+                    spacing: "5dp"
+                    padding: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Type"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+                    MDTextField:
+                        id: Abaca health
+                        hint_text: "Abaca health"
+                        size_hint_y: None
+                        height: "22dp"
+                        mode: "rectangle"
+                        readonly: True
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "90dp"
+                    padding: "5dp"
+                    spacing: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Title"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+                    MDTextField:
+                        hint_text: "Be specific with your title"
+                        size_hint_y: None
+                        height: "35dp"
+                        mode: "rectangle"
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "90dp"
+                    padding: "10dp"
+                    spacing: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Details"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+                    MDTextField:
+                        hint_text: "Please include any relevant information."
+                        mode: "rectangle"
+                        adaptive_height: True
+                        size_hint_y: None
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "90dp"
+                    padding: "10dp"
+                    spacing: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Tags"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+                    MDTextField:
+                        hint_text: "Tags that describes your question"
+                        size_hint_y: None
+                        height: "24dp"
+                        mode: "rectangle"
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "75dp"
+                    padding: "5dp"
+                    spacing: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Attachment"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "35dp"
+                        MDRaisedButton:
+                            text: "Choose Files"
+                            size_hint: None, None
+                            size: "143dp", "25dp"
+                            md_bg_color: 0.9, 0.9, 0.9, 1
+                            theme_text_color: "Custom"
+                            text_color: 0, 0, 0, 1
+                        MDLabel:
+                            text: "  Coming Soon"
+                            anchor_text: "right"
+                            font_size: "12sp"
+                            theme_text_color: "Custom"
+                            text_color: 0,0,0,1
+
+                MDRaisedButton:
+                    text: "Submit Question"
+                    pos_hint: {"center_x": .5}
+                    size_hint_x: 0.9
+                    height: "50dp"
+                    md_bg_color: app.theme_cls.primary_color
+                    on_release: root.submit_newquestion()

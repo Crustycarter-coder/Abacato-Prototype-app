@@ -1,0 +1,203 @@
+<AccountScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 1, 1, 1, 1
+
+
+        MDRelativeLayout:
+            size_hint_y: None
+            height: "140dp"
+            md_bg_color: app.theme_cls.primary_color
+            MDBoxLayout:
+                orientation: "horizontal"
+                padding: "20dp"
+                spacing: "15dp"
+                pos_hint: {"center_y": .5}
+
+                MDCard:
+                    size_hint: None, None
+                    size: "80dp", "80dp"
+                    radius: 55
+                    elevation: 0
+                    FitImage:
+                        source: "PNG/Users/Ryan Acc.jpg"
+                        radius: 55
+                MDBoxLayout:
+                    orientation: "vertical"
+                    adaptive_height: True
+                    pos_hint: {"center_y": .5}
+                    MDLabel:
+                        text: "Ryan"
+                        font_style: "H5"
+                        bold: True
+                    MDLabel:
+                        text: "Type: Supplier"
+                        font_style: "Caption"
+                    MDLabel:
+                        text: "Member Since: 22-March-2026"
+                        font_style: "Caption"
+        MDGridLayout:
+            cols: 4
+            size_hint_y: None
+            height: "80dp"
+            md_bg_color: 1, 1, 1, 1
+
+            MDCard:
+                orientation: "vertical"
+                spacing: "2dp"
+                padding: "10dp"
+                size_hint_y: None
+                height: "80dp"
+                focus_behavior: True
+                ripple_behavior: True
+                on_release: app.go_back()
+                MDIcon:
+                    icon: "home-outline"
+                    pos_hint: {"center_x": .5}
+                    font_size: "24sp"
+
+                MDLabel:
+                    text: "Home"
+                    halign: "center"
+                    font_style: "Caption"
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "2dp"
+                padding: "10dp"
+                size_hint_y: None
+                height: "80dp"
+                MDIcon:
+                    icon: "plus-circle-outline"
+                    pos_hint: {"center_x": .5}
+                    font_size: "24sp"
+                MDLabel:
+                    text: "RFQ"
+                    halign: "center"
+                    font_style: "Caption"
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "2dp"
+                padding: "10dp"
+                size_hint_y: None
+                height: "80dp"
+                MDIcon:
+                    icon: "history"
+                    pos_hint: {"center_x": .480}
+                    font_size: "24sp"
+                MDLabel:
+                    text: "History"
+                    halign: "center"
+                    font_style: "Caption"
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "2dp"
+                padding: "10dp"
+                size_hint_y: None
+                height: "80dp"
+                MDIcon:
+                    icon: "view-grid-outline"
+                    pos_hint: {"center_x": .5}
+                    font_size: "24sp"
+                MDLabel:
+                    text: "Categories"
+                    halign: "center"
+                    font_style: "Caption"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            padding: "15dp"
+
+            MDCard:
+                size_hint_y: None
+                height: "55dp"
+                on_release: root.go_to_addnewproduct()
+                canvas.after:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Line:
+                        points: self.x, self.y, self.x + self.width, self.y
+                        width: 1
+                MDLabel:
+                    text: "Add New Product"
+                    font_style: "Subtitle1"
+
+            MDCard:
+                size_hint_y: None
+                height: "50dp"
+                on_release: root.go_to_prodcutsinventory()
+                canvas.after:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Line:
+                        points: self.x, self.y, self.x + self.width, self.y
+                        width: 1
+                MDLabel:
+                    text: "Products Inventory"
+                    size_hint_y: None
+                    height: "50dp"
+                    font_style: "Subtitle1"
+
+
+            MDLabel:
+                text: "Basic Information"
+                size_hint_y: None
+                height: "50dp"
+                font_style: "Subtitle1"
+                canvas.after:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Line:
+                        points: self.x, self.y, self.x + self.width, self.y
+                        width: 1
+
+            MDLabel:
+                text: "Messages"
+                size_hint_y: None
+                height: "50dp"
+                font_style: "Subtitle1"
+                canvas.after:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Line:
+                        points: self.x, self.y, self.x + self.width, self.y
+                        width: 1
+            MDLabel:
+                text: "About AbacaTO"
+                size_hint_y: None
+                height: "50dp"
+                font_style: "Subtitle1"
+                canvas.after:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Line:
+                        points: self.x, self.y, self.x + self.width, self.y
+                        width: 1
+
+            MDLabel:
+                text: "Settings"
+                size_hint_y: None
+                height: "50dp"
+                font_style: "Subtitle1"
+                canvas.after:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Line:
+                        points: self.x, self.y, self.x + self.width, self.y
+                        width: 1
+
+
+
+
+        Widget:
+
+        MDTextButton:
+            text: "Logout"
+            theme_text_color: "Custom"
+            text_color: 1, 0, 0, 1
+            pos_hint: {"center_x": .5}
+            padding: "20dp"
+
+        Widget:
+            size_hint_y: None
+            height: "20dp"

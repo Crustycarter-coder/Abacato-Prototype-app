@@ -1,0 +1,151 @@
+<RFQScreen>
+    BoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "Request for Quotation"
+            anchor_title: "left"
+            md_bg_color: app.theme_cls.primary_color
+            specific_text_color: 0,0,0,1
+            left_action_items: [["arrow-left", lambda x: app.go_back()]]
+
+        ScrollView:
+            do_scroll_x: False
+            md_bg_color: 0.98, 0.98, 0.98, 1
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "20dp"
+                padding: [10,20,10,20]
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "90dp"
+                    spacing: "5dp"
+                    padding: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Category"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+                    MDTextField:
+                        id: select_category_field
+                        hint_text: "Select Category"
+                        size_hint_y: None
+                        height: "22dp"
+                        mode: "rectangle"
+                        readonly: True
+                        on_focus:
+                            if self.focus: root.open_menu()
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "90dp"
+                    padding: "5dp"
+                    spacing: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Subject"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+                    MDTextField:
+                        hint_text: "Looking for..."
+                        size_hint_y: None
+                        height: "35dp"
+                        mode: "rectangle"
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "90dp"
+                    padding: "10dp"
+                    spacing: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Details"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+                    MDTextField:
+                        hint_text: "Please include any relevant information."
+                        mode: "rectangle"
+                        adaptive_height: True
+                        size_hint_y: None
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "90dp"
+                    padding: "10dp"
+                    spacing: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Required Quantity"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+                    MDTextField:
+                        hint_text: "Amount:"
+                        size_hint_y: None
+                        height: "24dp"
+                        mode: "rectangle"
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: "75dp"
+                    padding: "5dp"
+                    spacing: "5dp"
+                    md_bg_color: 1,1,1,1
+                    MDLabel:
+                        text: "Attachment"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0,0,0,1
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "35dp"
+                        MDRaisedButton:
+                            text: "Choose Files"
+                            size_hint: None, None
+                            size: "143dp", "25dp"
+                            md_bg_color: 0.9, 0.9, 0.9, 1
+                            theme_text_color: "Custom"
+                            text_color: 0, 0, 0, 1
+                        MDLabel:
+                            text: "  Coming Soon"
+                            anchor_text: "right"
+                            font_size: "12sp"
+                            theme_text_color: "Custom"
+                            text_color: 0,0,0,1
+
+                MDRaisedButton:
+                    text: "Submit RFQ"
+                    pos_hint: {"center_x": .5}
+                    size_hint_x: 0.9
+                    height: "50dp"
+                    md_bg_color: app.theme_cls.primary_color
+                    on_release: root.submit_rfq()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
